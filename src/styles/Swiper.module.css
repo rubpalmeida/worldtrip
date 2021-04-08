@@ -1,0 +1,11 @@
+.swiper-container {
+  width: 100vw;
+}
+
+.swiper-wrapper {
+  padding-inline-start: 0;
+}
+
+.swiper-slide li {
+  list-style: none;
+}
