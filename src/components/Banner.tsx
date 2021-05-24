@@ -3,10 +3,11 @@ import { Box, Flex, Image, Text } from "@chakra-ui/react";
 export function Banner() {
   return (
     <Flex
-      w="100vw"
+      w="100%"
       h="368.21px"
       bgImage="url('/images/background.svg')"
       backgroundRepeat="no-repeat"
+      backgroundSize="cover"
       align="center"
     >
       <Box pl={140}>
@@ -15,6 +16,7 @@ export function Banner() {
           fontWeight="500"
           fontSize="4xl"
           lineHeight="54px"
+          mr="auto"
         >
           5 Continentes, inifinitas possibilidades
         </Text>
@@ -27,7 +29,7 @@ export function Banner() {
         </Text>
       </Box>
 
-      <Box pl={140} pt={76}>
+      <Box ml="auto" mr={76}>
         <Image
           w={417}
           h={270}

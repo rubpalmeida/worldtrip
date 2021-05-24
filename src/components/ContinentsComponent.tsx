@@ -1,7 +1,9 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { Slider } from "./Swiper";
 
-export function Continents() {
+
+
+export function ContinentsComponent() {
   return (
     <Flex direction="column" align="center" justify="center" p="10">
       <Box textAlign="center" pl="48" pb="14">
