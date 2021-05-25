@@ -1,7 +1,5 @@
 import { Divider } from "@chakra-ui/layout";
 import { GetStaticProps } from "next";
-import { useEffect } from "react";
-import { RichText } from 'prismic-dom'
 
 import Prismic from '@prismicio/client'
 
@@ -15,13 +13,16 @@ interface Continents {
   slug: string;
   title: string;
   subtitle: string;
+  banner: string;
 }
 
 interface ContinentsProps {
   continents: Continents[]
 }
 
-export default function Home(continents: ContinentsProps): JSX.Element {
+export default function Home({ continents }: ContinentsProps): JSX.Element {
+
+  console.log(continents)
 
   return (
     <>
@@ -33,7 +34,7 @@ export default function Home(continents: ContinentsProps): JSX.Element {
 
       <Divider mx="auto" w="90px" borderColor="gray.600" />
 
-      <ContinentsComponent />
+      <ContinentsComponent continents={continents} />
 
     </>
   )
@@ -46,20 +47,17 @@ export const getStaticProps: GetStaticProps = async () => {
   const response = await prismic.query([
     Prismic.predicates.at('document.type', 'continents'),
   ], {
-    fetch: ['continents.title', 'continents.subtitle'],
-    pageSize: 10
+    // fetch: ['continents.title', 'continents.subtitle', 'continents.data.banner.url']
   })
 
   const continents = response.results.map(continent => {
     return {
       slug: continent.uid,
       title: continent.data.title,
-      subtitle: continent.data.subtitle
+      subtitle: continent.data.subtitle,
+      banner: continent.data.banner.url
     }
   })
-
-  console.log(continents)
-
 
   return {
     props: { continents },
