@@ -22,11 +22,9 @@ interface ContinentsProps {
 
 export default function Home({ continents }: ContinentsProps): JSX.Element {
 
-  console.log(continents)
-
   return (
     <>
-      <Header />
+      <Header isInContinent={false} />
 
       <Banner />
 
@@ -46,9 +44,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const response = await prismic.query([
     Prismic.predicates.at('document.type', 'continents'),
-  ], {
-    // fetch: ['continents.title', 'continents.subtitle', 'continents.data.banner.url']
-  })
+  ], {})
 
   const continents = response.results.map(continent => {
     return {

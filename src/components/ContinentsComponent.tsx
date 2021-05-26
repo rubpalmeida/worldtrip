@@ -5,6 +5,7 @@ interface Continents {
   slug: string;
   title: string;
   subtitle: string;
+  banner: string;
 }
 
 interface ContinentsProps {
