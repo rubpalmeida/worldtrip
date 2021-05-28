@@ -1,10 +1,9 @@
-import { Button, Flex, Image, Text } from "@chakra-ui/react";
+import { Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
 
 interface ContinentBannerProps {
   continent: {
     data: {
       title: string;
-      info: string;
       continent_image: {
         url: string;
       }
@@ -15,16 +14,26 @@ interface ContinentBannerProps {
 export function ContinentBanner({ continent }: ContinentBannerProps) {
 
   return (
-    <Flex position="relative">
-      <Image
-        w="100%"
-        h={500}
-        src={continent.data.continent_image.url}
-        objectFit="cover"
-      />
-      <Flex position="absolute" bottom="0" ml={20} mb={10}>
-        <Text fontWeight="bold" fontSize="5xl">{continent.data.title}</Text>
-      </Flex>
+    <Flex
+      w="100%"
+      h={["150px", "300px", "500px"]}
+      px={["0", "0", "36"]}
+      pt={["0", "0", "72"]}
+      bgImage={`url(${continent.data.continent_image.url})`}
+      bgRepeat="no-repeat"
+      bgSize="cover"
+      bgPosition="center"
+      align="center"
+      justify={["center", "center", "flex-start"]}
+    >
+      <Heading
+        textAlign={["center", "left"]}
+        fontWeight="500"
+        fontSize={["1.75rem", "5xl"]}
+        color="gray.50"
+      >
+        {continent.data.title}
+      </Heading>
     </Flex >
   );
 }

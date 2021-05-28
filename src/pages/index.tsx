@@ -1,13 +1,13 @@
-import { Divider } from "@chakra-ui/layout";
+import { Divider, Heading } from "@chakra-ui/layout";
 import { GetStaticProps } from "next";
 
 import Prismic from '@prismicio/client'
 
 import { Banner } from "../components/Banner";
-import { ContinentsComponent } from "../components/ContinentsComponent";
 import { Header } from "../components/Header";
-import { TravelTypes } from "../components/TravelTypes";
 import { getPrismicClient } from "../services/prismic";
+import { TravelTypes } from "../components/TravelTypes/index";
+import { Slider } from "../components/Swiper";
 
 interface Continents {
   slug: string;
@@ -30,9 +30,18 @@ export default function Home({ continents }: ContinentsProps): JSX.Element {
 
       <TravelTypes />
 
-      <Divider mx="auto" w="90px" borderColor="gray.600" />
+      <Divider mt={["9", "20"]} mx="auto" w={["60px", "90px"]} borderColor="gray.600" />
 
-      <ContinentsComponent continents={continents} />
+      <Heading
+        fontSize={["lg", "2xl", "4xl"]}
+        color="gray.600"
+        textAlign="center"
+        my={["5", "14"]}
+      >
+        Vamos nessa? <br /> Então escolha seu continente
+      </Heading>
+
+      <Slider continents={continents} />
 
     </>
   )

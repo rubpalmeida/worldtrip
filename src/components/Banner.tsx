@@ -1,43 +1,50 @@
-import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
 
 export function Banner() {
   return (
     <Flex
       w="100%"
-      h="368.21px"
+      h={["163px", "250px", "250px", "335px"]}
       bgImage="url('/images/background.svg')"
-      backgroundRepeat="no-repeat"
-      backgroundSize="cover"
+      bgRepeat="no-repeat"
+      bgSize="cover"
       align="center"
     >
-      <Box pl={140}>
-        <Text
-          maxWidth={426}
-          fontWeight="500"
-          fontSize="4xl"
-          lineHeight="54px"
-          mr="auto"
-        >
-          5 Continentes, inifinitas possibilidades
+      <Flex
+        justify={["center", "space-between"]}
+        align="center"
+        w="100%"
+        mx="auto"
+        px={["4", "10", "15", "20", "36"]}
+      >
+        <Box>
+          <Heading
+            color="gray.50"
+            fontWeight="500"
+            fontSize={["xl", "2xl", "2xl", "2xl", "4xl"]}
+            lineHeight="54px"
+          >
+            5 Continentes, <br /> inifinitas possibilidades
+        </Heading>
+          <Text
+            maxW={["100%", "100%", "100%", "550px"]}
+            fontSize={["0.8rem", "xl"]}
+            mt="5"
+            color="gray.200"
+          >
+            Chegou a hora de tirar do papel a viagem que você sempre sonhou.
         </Text>
-        <Text
-          maxWidth={524}
-          fontSize="xl"
-          color="gray.200"
-        >
-          Chegou a hora de tirar do papel a viagem que você sempre sonhou.
-        </Text>
-      </Box>
+        </Box>
 
-      <Box ml="auto" mr={76}>
         <Image
-          w={417}
-          h={270}
+          w={["300px", "300px", "300px", "430px"]}
+          display={["none", "none", "block"]}
           src="/images/airplane.svg"
-          alt="airplane"
-          transform="rotate(3deg)"
+          alt="Avião Amarelo"
+          transform="rotate(3deg) translateY(48px)"
+          ml={8}
         />
-      </Box>
+      </Flex>
     </Flex>
   );
 }
